@@ -3,13 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/x-icon" href="/icon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no" />
     <title>frontend</title>
-    <script type="module" crossorigin src="/assets/index-CIPG7PG-.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-DiJDm01w.css">
+    <script type="module" crossorigin src="/assets/index-DOWuT1VS.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-ZZuex_OW.css">
   </head>
   <body>
     <div id="root"></div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+      // Prevent viewport jumping on mobile browsers
+      function setVH() {
+        const vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+      }
+      
+      window.addEventListener('resize', setVH);
+      window.addEventListener('orientationchange', setVH);
+      setVH();
+      
+      // Prevent scroll restoration that can cause jumping
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+      }
+    </script>
   </body>
 </html>
